@@ -1,5 +1,7 @@
 package com.makersacademy.acebook.model;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -24,11 +26,15 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String content;
+    private LocalDateTime date;
+    private int likes;
 
     private Post() {}
 
-    public Post(String content) {
+    public Post(String content, LocalDateTime date, int likes) {
         this.content = content;
+        this.date = date;
+        this.likes = likes;
     }
 
 }
