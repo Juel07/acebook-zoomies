@@ -1,0 +1,37 @@
+DROP TABLE IF EXISTS users;
+
+-- Users
+CREATE TABLE users (
+	id BIGSERIAL PRIMARY KEY,
+	email VARCHAR(100) NOT NULL,
+	password VARCHAR(100) NOT NULL,
+	name VARCHAR(50) NOT NULL,
+	location VARCHAR(100),
+	about VARCHAR(100),
+	image_url VARCHAR(500)
+);
+
+DROP TABLE IF EXISTS comments;
+
+-- Comments
+CREATE TABLE comments (
+	id BIGSERIAL PRIMARY KEY,
+	post_id BIGSERIAL REFERENCES posts(id),
+	user_id BIGSERIAL REFERENCES users(id),
+	date TIMESTAMP NOT NULL,
+	content VARCHAR(500) NOT NULL
+);
+
+DROP TABLE IF EXISTS post_likes;
+
+-- PostLike
+CREATE TABLE post_likes (
+	id BIGSERIAL PRIMARY KEY,
+	post_id BIGSERIAL REFERENCES posts(id),
+	user_id BIGSERIAL REFERENCES users(id)
+);
+
+-- Posts
+ALTER TABLE posts ADD COLUMN user_id BIGSERIAL REFERENCES users(id);
+ALTER TABLE posts ADD COLUMN date TIMESTAMP NOT NULL;
+ALTER TABLE posts ADD COLUMN likes INTEGER;
