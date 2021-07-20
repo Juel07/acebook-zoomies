@@ -28,13 +28,17 @@ public class Post {
     private String content;
     private LocalDateTime date;
     private int likes;
+    private Long user_id;
+    
 
     private Post() {}
 
-    public Post(String content, LocalDateTime date, int likes) {
+    public Post(String content, LocalDateTime date, int likes, Long user_id) {
         this.content = content;
         this.date = date;
         this.likes = likes;
+        this.user_id = user_id;
+        
     }
 
 }
