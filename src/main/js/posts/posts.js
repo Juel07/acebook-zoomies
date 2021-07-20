@@ -1,5 +1,6 @@
 import React from 'react';
 import Post from './post'
+import List from "@material-ui/core/List";
 
 class Posts extends React.Component {
   constructor(props) {
@@ -9,14 +10,9 @@ class Posts extends React.Component {
 
   render() {
     return (
-      <article className='posts-main'>
-        <h1 className='posts-title'>
-          Posts
-        </h1>
-        <div className='posts-items'>
-          {this.getPosts().reverse()}
-        </div>
-      </article>
+      <List>
+        {this.getPosts().reverse()}
+      </List>
     )
   }
 
