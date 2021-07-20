@@ -7,23 +7,23 @@ class Posts extends React.Component {
     this.getPosts = this.getPosts.bind(this);
   }
 
-	render() {
-		return (
+  render() {
+    return (
       <article className='posts-main'>
         <h1 className='posts-title'>
           Posts
         </h1>
-  			<div className='posts-items'>
-  				{this.getPosts()}
-  			</div>
+        <div className='posts-items'>
+          {this.getPosts().reverse()}
+        </div>
       </article>
-		)
-	}
+    )
+  }
 
   getPosts() {
     return this.props.posts.map(post =>
-			<Post key={post._links.self.href} post={post}/>
-		);
+      <Post key={post._links.self.href} post={post} />
+    );
   }
 }
 
