@@ -8,7 +8,11 @@
     "react-dom": "^16.4.0",
     "rest": "^2.0.0",
     "webpack": "^4.10.2",
-    "webpack-cli": "^2.1.4"
+    "webpack-cli": "^2.1.4",
+    "clsx": "latest",
+    "@fontsource/roboto": "4.5.0",
+    "@material-ui/icons": "latest",
+    "@material-ui/core": "latest"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
@@ -16,30 +20,14 @@
     "babel-polyfill": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
-    "jest": "^23.1.0"
+    "jest": "^23.1.0",
+    "react-scripts": "latest"
   },
   "scripts": {
     "start": "npm run webpack",
     "webpack": "webpack -d --watch"
   },
   "author": "dearshrewdwit",
-  "license": "ISC"
+  "license": "ISC",
+  "keywords": []
 }
-{
-  "title": "Material UI",
-  "devDependencies": {
-    "react-scripts": "latest"
-  },
-  "description": "https://material-ui.com/",
-  "dependencies": {
-    "react-dom": "latest",
-    "react": "latest",
-    "clsx": "latest",
-    "@fontsource/roboto": "4.5.0",
-    "@material-ui/icons": "latest",
-    "@material-ui/core": "latest"
-  },
-  "keywords": [],
-  "name": "material UI components"
-}
-
