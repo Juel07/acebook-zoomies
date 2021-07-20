@@ -4,15 +4,16 @@
   "description": "A template project for spring boot/react.js",
   "main": "index.js",
   "dependencies": {
-    "react": "^16.4.0",
-    "react-dom": "^16.4.0",
+    "@fontsource/roboto": "4.5.0",
+    "@material-ui/core": "latest",
+    "@material-ui/icons": "latest",
+    "bootstrap": "^5.0.2",
+    "clsx": "latest",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "rest": "^2.0.0",
     "webpack": "^4.10.2",
-    "webpack-cli": "^2.1.4",
-    "clsx": "latest",
-    "@fontsource/roboto": "4.5.0",
-    "@material-ui/icons": "latest",
-    "@material-ui/core": "latest"
+    "webpack-cli": "^2.1.4"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
