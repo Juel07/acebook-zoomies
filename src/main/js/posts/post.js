@@ -5,8 +5,8 @@ const Post = (props) => {
 		<div className='post-main'>
 			<div className='post-content'>
 				<div className='date'>{props.post.date}</div>
-				<div className='content'>{props.post.content}</div>
-				<div className='likes'>{props.post.likes} likes</div>
+				<div className='content'>{props.post.content} ****hey hey hey</div>
+				<div className='likes'>{props.post.likes} likeyyyy</div>
 			</div>
 		</div>
 	)
