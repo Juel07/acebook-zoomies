@@ -15,6 +15,7 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import ChatBubbleOutlineOutlinedIcon from "@material-ui/icons/ChatBubbleOutlineOutlined";
 import ShareIcon from "@material-ui/icons/Share";
 import DeleteOutlineOutlinedIcon from "@material-ui/icons/DeleteOutlineOutlined";
+import LikeButton from "./likeButton"
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -73,18 +74,8 @@ export default function Post(props) {
 					</Typography>
 				</CardContent>
 				<CardActions disableSpacing>
-					<IconButton aria-label="add to favorites">
-						<FavoriteIcon />
-					</IconButton>
-					<Typography
-						className={classes.mar}
-						onClick={handleExpandClick}
-						variant="body2"
-						display="block"
-						color="textSecondary"
-					>
-						{props.post.likes}
-					</Typography>
+					<LikeButton postData={props.post} idPost={props.idPost} />
+
 					<IconButton
 						aria-label="comment"
 						className={clsx(classes.expand, {
