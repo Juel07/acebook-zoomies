@@ -8,7 +8,12 @@ public class HomeController {
 
 	@RequestMapping(value = "/")
 	public String index() {
-		return "index";
+		return "index.html";
+	}
+
+	@RequestMapping(value = "/signup")
+	public String signup() {
+		return "signup.html";
 	}
 
 }

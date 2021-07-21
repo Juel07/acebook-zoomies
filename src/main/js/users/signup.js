@@ -45,6 +45,24 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SignUp() {
+
+  // const [postContent, setPostContent] = useState("");
+
+  // function submitPost() {
+  //   console.log(postContent);
+  //   const newPost = {
+  //     content: postContent,
+  //     user_id: 1,
+  //     likes: 0,
+  //     date: new Date()
+  //   };
+  //   client({ method: 'POST', path: '/api/posts', entity: newPost }).then(response => {
+  //     // console.log(response);
+  //     window.location.reload(true);
+  //   });
+
+  // }
+
   const classes = useStyles();
 
   return (
