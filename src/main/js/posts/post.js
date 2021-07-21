@@ -15,7 +15,6 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import ChatBubbleOutlineOutlinedIcon from "@material-ui/icons/ChatBubbleOutlineOutlined";
 import ShareIcon from "@material-ui/icons/Share";
 import DeleteOutlineOutlinedIcon from "@material-ui/icons/DeleteOutlineOutlined";
-import LikeButton from "./likeButton"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -51,6 +50,14 @@ export default function Post(props) {
     setExpanded(!expanded);
   };
 
+  const formatDate = (utcDate) => {
+    let dbDate = new Date(utcDate).toString();
+    let dbDateToGMT = new Date(`${dbDate} GMT`).toString();
+    let arr = dbDateToGMT.split(' GMT');
+    let formattedDate = arr[0];
+    return formattedDate;
+  }
+
   return (
     <ListItem>
       <Card className={classes.root}>
@@ -66,7 +73,7 @@ export default function Post(props) {
             </IconButton>
           }
           title="John Doe"
-          subheader={new Date(props.post.date).toDateString()}
+          subheader={formatDate(props.post.date}
         />
         <CardContent>
           <Typography variant="body2" color="textSecondary" component="p">
