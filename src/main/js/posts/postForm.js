@@ -39,7 +39,6 @@ export default function PostForm() {
       date: new Date()
     };
     client({ method: 'POST', path: '/api/posts', entity: newPost }).then(response => {
-      // console.log(response);
       window.location.reload(true);
     });
 
@@ -47,7 +46,6 @@ export default function PostForm() {
 
   function handleSubmitPost(event) {
     submitPost();
-
   }
 
   function handlePostContent(event) {

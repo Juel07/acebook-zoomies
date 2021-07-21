@@ -11,18 +11,19 @@ class Posts extends React.Component {
   render() {
     return (
       <List>
-        {this.getPosts().reverse()}
+        {this.getPosts()}
       </List>
     )
   }
 
   getPosts() {
-    return this.props.posts.map(post =>
-      <Post 
-          key={post._links.self.href} 
-          post={post} 
-          idPost={post._links.self.href} 
-          refreshPostsBuilder={this.props.refreshPostsBuilder}
+    let sortedPosts = this.props.posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+    return sortedPosts.map(post =>
+      <Post
+        key={post._links.self.href}
+        post={post}
+        idPost={post._links.self.href}
+        refreshPostsBuilder={this.props.refreshPostsBuilder}
       />
     );
   }
