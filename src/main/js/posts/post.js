@@ -74,7 +74,7 @@ export default function Post(props) {
 					</Typography>
 				</CardContent>
 				<CardActions disableSpacing>
-					<LikeButton postData={props.post} idPost={props.idPost} />
+					<LikeButton postData={props.post} idPost={props.idPost} refreshPostsBuilder={props.refreshPostsBuilder} />
 
 					<IconButton
 						aria-label="comment"

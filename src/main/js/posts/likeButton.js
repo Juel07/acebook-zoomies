@@ -58,7 +58,8 @@ export default function LikeButton(props) {
 
       client({ method: 'PUT', path: `/api/posts/${idPostElem}`, entity: newLike }).then(response => {
           // console.log(response);
-          window.location.reload(true);
+          // window.location.reload(true);
+          props.refreshPostsBuilder();
         });
     } else {
       const newLike = {
@@ -70,8 +71,8 @@ export default function LikeButton(props) {
 
       client({ method: 'PUT', path: `/api/posts/${idPostElem}`, entity: newLike }).then(response => {
           // console.log(response);
-          window.location.reload(true);
-          
+          // window.location.reload(true);
+          props.refreshPostsBuilder();
         });
     }
 
