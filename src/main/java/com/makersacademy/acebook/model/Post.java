@@ -31,14 +31,13 @@ public class Post {
     private Long user_id;
     
 
-    private Post() {}
+    // private Post() {}
 
     public Post(String content, LocalDateTime date, int likes, Long user_id) {
         this.content = content;
         this.date = date;
         this.likes = likes;
         this.user_id = user_id;
-        
     }
 
 }

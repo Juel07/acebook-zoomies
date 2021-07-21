@@ -14,8 +14,8 @@ import lombok.Data;
 // Specifies that the class is an entity
 @Entity
 // Specifies the primary table for the annotated entity
-@Table(name = "POSTS")
-public class Post {
+@Table(name = "USERS")
+public class User {
 
     // Specifies the primary key of an entity
     @Id
@@ -23,25 +23,24 @@ public class Post {
     // IDENTITY: Indicates that the persistence provider must assign primary keys for the entity using a database identity column.
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String content;
-    private LocalDateTime date;
-    private int likes;
-    private Long user_id;
+    private String email;
+    private String password;
+    private String name;
+    private String location;
+    private String about;
+    private String image_url;
     
-
-    private Post() {}
-
-    public Post(String content, LocalDateTime date, int likes, Long user_id) {
-        this.content = content;
-        this.date = date;
-        this.likes = likes;
-        this.user_id = user_id;
-        
+    public User(String user_email, String user_password, String user_name, String user_about, String user_location, String image_url) {
+        this.email = user_email;
+        this.password = user_password;
+        this.name = user_name;
+        this.location = user_location;
+        this.about = user_about;
+        this.image_url = image_url;
+    }
+    
+    public String getName() {
+    	return this.name;
     }
 
-}
-package com.makersacademy.acebook.model;
-
-public class User {
-  
 }
