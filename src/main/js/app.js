@@ -1,17 +1,13 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
 
-import PostsBuilder from './posts/postsBuilder';
-import PostForm from './posts/postForm';
+import AppRouter from './router';
 
 class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <PostForm />
-        <PostsBuilder />
-      </div>
+      <AppRouter />
     )
   }
 }
