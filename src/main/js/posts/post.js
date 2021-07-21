@@ -11,10 +11,10 @@ import Collapse from "@material-ui/core/Collapse";
 import { red } from "@material-ui/core/colors";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import FavoriteIcon from "@material-ui/icons/Favorite";
 import ChatBubbleOutlineOutlinedIcon from "@material-ui/icons/ChatBubbleOutlineOutlined";
 import ShareIcon from "@material-ui/icons/Share";
 import DeleteOutlineOutlinedIcon from "@material-ui/icons/DeleteOutlineOutlined";
+import LikeButton from "./likeButton";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -73,7 +73,7 @@ export default function Post(props) {
             </IconButton>
           }
           title="John Doe"
-          subheader={formatDate(props.post.date}
+          subheader={formatDate(props.post.date)}
         />
         <CardContent>
           <Typography variant="body2" color="textSecondary" component="p">
