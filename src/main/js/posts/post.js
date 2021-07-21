@@ -17,38 +17,38 @@ import ShareIcon from "@material-ui/icons/Share";
 import DeleteOutlineOutlinedIcon from "@material-ui/icons/DeleteOutlineOutlined";
 
 const useStyles = makeStyles((theme) => ({
-	root: {
-		width: "100%",
-		// maxWidth: 500,
-		// backgroundColor: theme.palette.background.paper
-	},
-	expand: {
-		transform: "rotate(0deg)",
-		marginLeft: "auto",
-		transition: theme.transitions.create("transform", {
-			duration: theme.transitions.duration.shortest
-		})
-	},
-	expandOpen: {
-		color: "pink"
-	},
-	avatar: {
-		backgroundColor: red[500]
-	},
-	mar: {
-		marginRight: 15,
-		marginLeft: 2
-	}
+  root: {
+    width: "100%",
+    // maxWidth: 500,
+    // backgroundColor: theme.palette.background.paper
+  },
+  expand: {
+    transform: "rotate(0deg)",
+    marginLeft: "auto",
+    transition: theme.transitions.create("transform", {
+      duration: theme.transitions.duration.shortest
+    })
+  },
+  expandOpen: {
+    color: "pink"
+  },
+  avatar: {
+    backgroundColor: red[500]
+  },
+  mar: {
+    marginRight: 15,
+    marginLeft: 2
+  }
 }));
 
 export default function Post(props) {
-	const classes = useStyles();
+  const classes = useStyles();
 
-	const [expanded, setExpanded] = React.useState(false);
+  const [expanded, setExpanded] = React.useState(false);
 
-	const handleExpandClick = () => {
-		setExpanded(!expanded);
-	};
+  const handleExpandClick = () => {
+    setExpanded(!expanded);
+  };
 
   const formatDate = (utcDate) => {
     let dbDate = new Date(utcDate).toString();
@@ -58,72 +58,69 @@ export default function Post(props) {
     return formattedDate;
   }
 
-	return (
-		<ListItem>
-			<Card className={classes.root}>
-				<CardHeader
-					avatar={
-						<Avatar aria-label="user name" className={classes.avatar}>
-							JD
-						</Avatar>
-					}
-					action={
-						<IconButton aria-label="settings">
-							<DeleteOutlineOutlinedIcon />
-						</IconButton>
-					}
-					title="John Doe"
-					subheader={formatDate(props.post.date)}
-				/>
-				<CardContent>
-					<Typography variant="body2" color="textSecondary" component="p">
-						{props.post.content}
-					</Typography>
-				</CardContent>
-				<CardActions disableSpacing>
-					<IconButton aria-label="add to favorites">
-						<FavoriteIcon />
-					</IconButton>
-					<Typography
-						className={classes.mar}
-						onClick={handleExpandClick}
-						variant="body2"
-						display="block"
-						color="textSecondary"
-					>
-						{props.post.likes}
-					</Typography>
-					<IconButton
-						aria-label="comment"
-						className={clsx(classes.expand, {
-							[classes.expandOpen]: expanded
-						})}
-						onClick={handleExpandClick}
-						aria-expanded={expanded}
-					>
-						<ChatBubbleOutlineOutlinedIcon />
-					</IconButton>
-					<Typography
-						className={classes.mar}
-						onClick={handleExpandClick}
-						variant="body2"
-						display="block"
-						color="textSecondary"
-					>
-						0
-					</Typography>
-					<IconButton>
-						<ShareIcon />
-					</IconButton>
-				</CardActions>
-				<Collapse in={expanded} timeout="auto" unmountOnExit>
-					<CardContent>
-						<Typography variant="body2" color="textSecondary" component="p">
-							This could be a comment card
-						</Typography>
-					</CardContent>
-				</Collapse>
-			</Card>
-		</ListItem>
-	);
+  return (
+    <ListItem>
+      <Card className={classes.root}>
+        <CardHeader
+          avatar={
+            <Avatar aria-label="user name" className={classes.avatar}>
+              JD
+            </Avatar>
+          }
+          action={
+            <IconButton aria-label="settings">
+              <DeleteOutlineOutlinedIcon />
+            </IconButton>
+          }
+          title="John Doe"
+          subheader={formatDate(props.post.date}
+        />
+        <CardContent>
+          <Typography variant="body2" color="textSecondary" component="p">
+            {props.post.content}
+          </Typography>
+        </CardContent>
+        <CardActions disableSpacing>
+          <LikeButton postData={props.post} idPost={props.idPost} refreshPostsBuilder={props.refreshPostsBuilder} />
+          <Typography
+            className={classes.mar}
+            variant="body2"
+            display="block"
+            color="textSecondary"
+          >
+            {props.post.likes}
+          </Typography>
+          <IconButton
+            aria-label="comment"
+            className={clsx(classes.expand, {
+              [classes.expandOpen]: expanded
+            })}
+            onClick={handleExpandClick}
+            aria-expanded={expanded}
+          >
+            <ChatBubbleOutlineOutlinedIcon />
+          </IconButton>
+          <Typography
+            className={classes.mar}
+            onClick={handleExpandClick}
+            variant="body2"
+            display="block"
+            color="textSecondary"
+          >
+            0
+          </Typography>
+          <IconButton>
+            <ShareIcon />
+          </IconButton>
+        </CardActions>
+        <Collapse in={expanded} timeout="auto" unmountOnExit>
+          <CardContent>
+            <Typography variant="body2" color="textSecondary" component="p">
+              This could be a comment card
+            </Typography>
+          </CardContent>
+        </Collapse>
+      </Card>
+    </ListItem>
+  );
 }
