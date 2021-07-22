@@ -8,7 +8,6 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    // maxWidth: 500,
     margin: theme.spacing(2)
   },
   paper: {
@@ -25,8 +24,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-
-export default function PostForm() {
+export default function PostForm(props) {
   const [postContent, setPostContent] = useState("");
 
   function submitPost() {
@@ -37,6 +35,7 @@ export default function PostForm() {
       likes: 0,
       date: new Date()
     };
+
     client({ method: 'POST', path: '/api/posts', entity: newPost }).then(response => {
       window.location.reload(true);
     });
@@ -52,29 +51,34 @@ export default function PostForm() {
   }
 
   const classes = useStyles();
+
+  if (props.location.state) {
+    console.log(props.location.state.user_id);
+  }
+
   return (
     <Grid xs={12} className={classes.root} spacing={2}>
-      <Paper className={classes.paper}>
-        <TextField
-          id="outlined-multiline-static post-form"
-          label="Write something..."
-          multiline
-          rows={4}
-          variant="outlined"
-          onChange={handlePostContent}
-          className={classes.mar}
-        />
-        <Button
-          variant="contained"
-          color="secondary"
-          disableElevation
-          className={classes.button}
-          size="medium"
-          onClick={handleSubmitPost}
-        >
-          Post
-        </Button>
-      </Paper>
-    </Grid>
+        <Paper className={classes.paper}>
+          <TextField
+            id="outlined-multiline-static post-form"
+            label="Write something..."
+            multiline
+            rows={4}
+            variant="outlined"
+            onChange={handlePostContent}
+            className={classes.mar}
+          />
+          <Button
+            variant="contained"
+            color="secondary"
+            disableElevation
+            className={classes.button}
+            size="medium"
+            onClick={handleSubmitPost}
+          >
+            Post
+          </Button>
+        </Paper>
+      </Grid>
   );
 }

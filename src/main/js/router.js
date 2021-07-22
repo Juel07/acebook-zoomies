@@ -10,7 +10,7 @@ export default function AppRouter() {
       <Router>
           <Navigation />
           <Switch>
-              <Route path='/' exact component={() => (<div><PostForm /> <PostsBuilder /></div>)}></Route>
+              <Route path='/' exact component={(props) => (<div><PostForm {...props} /> <PostsBuilder /></div>)}></Route>
               <Route path='/signup' exact component={SignUpForm}></Route>
           </Switch>
       </Router>
