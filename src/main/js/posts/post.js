@@ -32,9 +32,9 @@ const useStyles = makeStyles((theme) => ({
   expandOpen: {
     color: "pink"
   },
-  avatar: {
-    backgroundColor: red[500]
-  },
+  // avatar: {
+  //   backgroundColor: red[500]
+  // },
   mar: {
     marginRight: 15,
     marginLeft: 2
@@ -64,7 +64,7 @@ export default function Post(props) {
         <CardHeader
           avatar={
             <Avatar aria-label="user name" className={classes.avatar}>
-              JD
+              J
             </Avatar>
           }
           action={
