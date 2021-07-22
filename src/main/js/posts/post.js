@@ -13,7 +13,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import ChatBubbleOutlineOutlinedIcon from "@material-ui/icons/ChatBubbleOutlineOutlined";
 import ShareIcon from "@material-ui/icons/Share";
-import DeleteOutlineOutlinedIcon from "@material-ui/icons/DeleteOutlineOutlined";
+import DeleteButton from "./deleteButton";
 import LikeButton from "./likeButton";
 
 const useStyles = makeStyles((theme) => ({
@@ -68,9 +68,7 @@ export default function Post(props) {
             </Avatar>
           }
           action={
-            <IconButton aria-label="settings">
-              <DeleteOutlineOutlinedIcon />
-            </IconButton>
+            <DeleteButton postData={props.post} idPost={props.idPost} refreshPostsBuilder={props.refreshPostsBuilder} />
           }
           title="John Doe"
           subheader={formatDate(props.post.date)}
