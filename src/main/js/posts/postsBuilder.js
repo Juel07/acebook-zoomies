@@ -30,7 +30,6 @@ class PostsBuilder extends React.Component {
         refresh: false,
       });
     }
-
   }
 
   render() {
