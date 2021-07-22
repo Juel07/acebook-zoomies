@@ -5,7 +5,6 @@ import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
-import location from 'rest/interceptor/location';
 
 const useStyles = makeStyles((theme) => ({
   root: {
