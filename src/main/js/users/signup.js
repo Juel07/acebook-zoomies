@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -10,6 +10,8 @@ import LockOpenOutlinedIcon from "@material-ui/icons/LockOpenOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import { useHistory } from 'react-router-dom';
+const client = require('../client');
 
 function Copyright() {
   return (
@@ -45,23 +47,50 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SignUp() {
+  let history = useHistory();
+  
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
+  const [location, setLocation] = useState("");
+  const [about, setAbout] = useState("");
 
-  // const [postContent, setPostContent] = useState("");
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  }
 
-  // function submitPost() {
-  //   console.log(postContent);
-  //   const newPost = {
-  //     content: postContent,
-  //     user_id: 1,
-  //     likes: 0,
-  //     date: new Date()
-  //   };
-  //   client({ method: 'POST', path: '/api/posts', entity: newPost }).then(response => {
-  //     // console.log(response);
-  //     window.location.reload(true);
-  //   });
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+  }
 
-  // }
+  const handleUsernameChange = (event) => {
+    setUsername(event.target.value);
+  }
+
+  const handleLocationChange = (event) => {
+    setLocation(event.target.value);
+  }
+
+  const handleAboutChange = (event) => {
+    setAbout(event.target.value);
+  }
+
+  const signUpUser = () => {
+    const newUser = {
+      email: email,
+      password: password,
+      name: username,
+      location: location,
+      about: about,
+      image_url: "https://path.to.image.com",
+    };
+
+    client({ method: 'POST', path: '/api/users', entity: newUser }).then(response => {
+      let hrefArr = response.entity._links.self.href.split('/');
+      let id = hrefArr[hrefArr.length - 1];
+      history.push('/', {user_id: id});
+    });
+  }
 
   const classes = useStyles();
 
@@ -88,6 +117,7 @@ export default function SignUp() {
                 type="text"
                 id="name"
                 autoFocus
+                onChange={handleUsernameChange}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -99,6 +129,7 @@ export default function SignUp() {
                 label="Location"
                 name="location"
                 autoComplete="loca"
+                onChange={handleLocationChange}
               />
             </Grid>
             <Grid item xs={12}>
@@ -113,6 +144,7 @@ export default function SignUp() {
                 type="text"
                 id="about"
                 autoFocus
+                onChange={handleAboutChange}
               />
             </Grid>
             <Grid item xs={12}>
@@ -124,6 +156,7 @@ export default function SignUp() {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
+                onChange={handleEmailChange}
               />
             </Grid>
             <Grid item xs={12}>
@@ -136,21 +169,22 @@ export default function SignUp() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                onChange={handlePasswordChange}
               />
             </Grid>
           </Grid>
           <Button
-            type="submit"
             fullWidth
             variant="contained"
             color="secondary"
             className={classes.submit}
+            onClick={signUpUser}
           >
             Sign Up
           </Button>
           <Grid container justifyContent="flex-end">
             <Grid item>
-              <Link color="inherit" href="#" variant="body2">
+              <Link color="inherit" href="/signin" variant="body2">
                 Already have an account? Sign in
               </Link>
             </Grid>
