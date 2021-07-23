@@ -9,6 +9,12 @@ It uses:
   - `react` to make requests to the api and render the component views
   - `flyway` to manage `postgres` db migrations
 
+### Screenshots
+
+<img src="/images/feed.png" width="65%">
+
+<img src="/images/signup.png" width="65%">
+
 ### Project Board
 
 [Kanban board](https://github.com/Juel07/acebook-zoomies/projects/1)
@@ -24,7 +30,7 @@ It uses:
 
 ### User Stories
 
-- [ ] 1
+- [x] 1
 ```
 As a User
 So that the system can “remember” me and my data
@@ -59,7 +65,7 @@ So that I can see when people are doing things
 I want to see the date the message (post) was posted
 ```
 
-- [ ] 6
+- [x] 6
 ```
 As a User
 So that people know me
@@ -117,11 +123,11 @@ I want to see other people’s profile pages
 
 ### Domain Model
 
-<img src="images/" width="65%">
+<img src="/images/domain-model.png" width="65%">
 
 ### Wireframe
 
-<img src="images/" width="65%">
+<img src="/images/wireframe.png" width="65%">
 
 ### Team ✨
 
