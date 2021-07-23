@@ -8,7 +8,7 @@ export default function AppRouter() {
   return (
       <Router>
           <Switch>
-              <Route path='/' exact component={() => (<Feed></Feed>)}></Route>
+              <Route path='/' exact component={(props) => (<Feed {...props}/>)}></Route>
               <Route path='/signup' exact component={SignUpForm}></Route>
           </Switch>
       </Router>

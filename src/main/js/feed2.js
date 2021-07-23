@@ -16,7 +16,6 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
-import AppRouter from './router';
 import PostsBuilder from './posts/postsBuilder';
 import PostForm from './posts/postForm';
 import { useHistory } from "react-router";
@@ -92,7 +91,7 @@ function ResponsiveDrawer(props) {
                 <Avatar alt="Eddie" src="/" className={classes.large}></Avatar>
                 <List>
                     <Typography variant="h6" noWrap gutterBottom>
-                        Eddie Andres
+                        Eddie Andress
                     </Typography>
                 </List>
             </Grid>
@@ -179,7 +178,7 @@ function ResponsiveDrawer(props) {
             <main className={classes.content}>
                 <div className={classes.toolbar} />
 
-                <PostForm /> <PostsBuilder />
+                <PostForm {...props}/> <PostsBuilder />
             </main>
         </div>
     );
