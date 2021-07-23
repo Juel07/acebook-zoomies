@@ -13,7 +13,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import ChatBubbleOutlineOutlinedIcon from "@material-ui/icons/ChatBubbleOutlineOutlined";
 import ShareIcon from "@material-ui/icons/Share";
-import DeleteOutlineOutlinedIcon from "@material-ui/icons/DeleteOutlineOutlined";
+import DeleteButton from "./deleteButton";
 import LikeButton from "./likeButton";
 
 const useStyles = makeStyles((theme) => ({
@@ -32,9 +32,9 @@ const useStyles = makeStyles((theme) => ({
   expandOpen: {
     color: "pink"
   },
-  avatar: {
-    backgroundColor: red[500]
-  },
+  // avatar: {
+  //   backgroundColor: red[500]
+  // },
   mar: {
     marginRight: 15,
     marginLeft: 2
@@ -64,13 +64,11 @@ export default function Post(props) {
         <CardHeader
           avatar={
             <Avatar aria-label="user name" className={classes.avatar}>
-              JD
+              J
             </Avatar>
           }
           action={
-            <IconButton aria-label="settings">
-              <DeleteOutlineOutlinedIcon />
-            </IconButton>
+            <DeleteButton postData={props.post} idPost={props.idPost} refreshPostsBuilder={props.refreshPostsBuilder} />
           }
           title="John Doe"
           subheader={formatDate(props.post.date)}

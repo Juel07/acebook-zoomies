@@ -1,6 +1,6 @@
-## Acebook
+## Acebook (renamed SpringBook)
 
-This is a java/springboot and react project to be developed on.
+Facebook clone developed in Java (Springboot & JUnit) and JavaScript (React) with PostgreSQL.
 
 It uses:
   - `maven` to build the project
@@ -9,53 +9,126 @@ It uses:
   - `react` to make requests to the api and render the component views
   - `flyway` to manage `postgres` db migrations
 
-### Card wall
+### Project Board
 
-REPLACE THIS TEXT WITH A LINK TO YOUR CARD WALL
+[Kanban board](https://github.com/Juel07/acebook-zoomies/projects/1)
 
-### Design
-
-This app has a somewhat typical API structure: in this case a springboot API serving data which a react frontend consumes.
-
-**IMPORTANT:** Test your understanding by diagramming the request/response cycles that occur when you load the app by visiting `localhost:8080`
-
-### Learning Plan
-
-This project will ultimately be really rewarding if you follow these three points:
-  1. **Work as a team.** Don't be tempted to split up to learn solo. At the very least pair on learning, and share knowledge as a team.
-  2. As a team, **plan your learning**. There's a ton of new things in this project, purposefully so. That's ok. As always with everything, **take it slowly & in small steps**: ask a coach if you want more ideas how to plan your team learning.
-  3. As an individual, **plan your learning**. Use `Diode` to keep yourself focused on setting and achieving your learning goals.
-
-### QuickStart Instructions
+### Set up
 
 - Fork and clone this repository to your machine
-- Use an IDE, like `intellij`, and select the project directory to load into the editor (you may need to set the source folder in the project settings)
+- Use an IDE, like `intellij` or `eclipse`, and select the project directory to load into the editor 
 - From the command line create a dev database `createdb acebook_springboot_development`
 - Install Maven `brew install maven`
 - Build the app and start the server, using the Maven command `mvn spring-boot:run`
 - Visit `localhost:8080`
 
-- Temporarily, if you want to add some posts you can use `curl` to post data to the API and then refresh the page.
+### User Stories
+
+- [ ] 1
 ```
-curl -X POST 'localhost:8080/api/posts' -d '{"content": "Hi, Folks!"}' -H 'Content-Type: application/json'
+As a User
+So that the system can “remember” me and my data
+I want to register by creating a  username & password
 ```
 
-(At some point a form would be implemented sends data to the API)
+- [ ] 2
+```
+As a registered User
+So that the system can authenticate me
+I want to login with my username and password
+```
 
-### Database
+- [x] 3 (MVP)
+```
+As a User 
+So I can see what people are doing 
+I want to see all the posts in the browser
+```
 
-Flyway is being used to manage your database migrations. Use the flyway docs to become familiar how to migrate your data.
+- [x] 4 (MVP)
+```
+As a User 
+So that I can let people know what I am doing
+I want to post a message (post) and see it on the feed
+```
 
-### Deployment
+- [x] 5
+```
+As a User
+So that I can see when people are doing things
+I want to see the date the message (post) was posted
+```
 
-- This template application is hosted on heroku at https://springboot-react-template.herokuapp.com/
-- Have a look at `application.properties`, `application-dev.properties` and `application-prod.properties`
-- The first line in `application.properties` specifies that the application is run using the config in `application-dev.properties`.
-- The config in `application-dev.properties` specifies that the development datebase be used.
-- This ensures that you do not manipulate the production database whilst developing new features.
-- Before deploying your application, you'll need to add some config to `application-prod.properties` so that the deployed application uses the production database.
-- Then, make sure the deployed app will use `application-prod.properties` by using `spring.profiles.active=dev` in your deployment script.
+- [ ] 6
+```
+As a User
+So that people know me
+I want to post a message with my name
+```
 
-### CI
+- [x] 7 (MVP)
+```
+As a User 
+So that I can easily see the latest posts
+I want to see a list of posts in reverse chronological order
+```
 
-- to be configured
+- [x] 8
+```
+As a User
+To avoid embarrassment 
+I want to delete my posts
+```
+
+- [x] 9
+```
+As a User
+So I can appreciate other users’ thoughts
+I want to be able to ‘Like’ posts (and like it only once)
+```
+
+- [ ] 10
+```
+As a User
+So I can give my input
+I want to give comments on posts
+```
+
+- [ ] 11
+```
+As a User
+So I can avoid conflict
+I want to delete my own comments
+```
+
+- [ ] 12
+```
+As a User
+So I can be visible
+I want to create a profile page
+```
+
+- [ ] 13
+```
+As a User
+So I can search others
+I want to see other people’s profile pages
+```
+
+### Domain Model
+
+<img src="images/" width="65%">
+
+### Wireframe
+
+<img src="images/" width="65%">
+
+### Team ✨
+
+- Goncalo
+- Hannah
+- Irina
+- Juel
+
+Original project template by [Makers Academy](https://github.com/makersacademy/acebook-java-template).
+
