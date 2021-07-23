@@ -1,13 +1,13 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
 
-import Feed from './feed2';
+import AppRouter from './router';
 
 class App extends React.Component {
 
   render() {
     return (
-      <Feed/>
+      <AppRouter/>
     )
   }
 }

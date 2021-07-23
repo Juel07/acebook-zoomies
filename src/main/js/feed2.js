@@ -17,6 +17,9 @@ import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import AppRouter from './router';
+import PostsBuilder from './posts/postsBuilder';
+import PostForm from './posts/postForm';
+import { useHistory } from "react-router";
 
 const drawerWidth = 240;
 
@@ -49,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
             display: 'none',
         },
     },
-    
+
     toolbar: theme.mixins.toolbar, // necessary for content to be below app bar
     drawerPaper: {
         width: drawerWidth,
@@ -64,6 +67,8 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
+
+
 function ResponsiveDrawer(props) {
     const { window } = props;
     const classes = useStyles();
@@ -73,6 +78,12 @@ function ResponsiveDrawer(props) {
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
+
+    let history = useHistory();
+
+    function SignUpLink() {
+        history.push("/signup")
+    }
 
     const drawer = (
         <div>
@@ -106,7 +117,7 @@ function ResponsiveDrawer(props) {
             <Divider />
             <List>
                 <ListItem>
-                    <Button color="secondary">
+                    <Button color="secondary" onClick={SignUpLink}>
                         Sign Up
                     </Button>
                 </ListItem>
@@ -167,7 +178,8 @@ function ResponsiveDrawer(props) {
             </nav>
             <main className={classes.content}>
                 <div className={classes.toolbar} />
-                <AppRouter />
+
+                <PostForm /> <PostsBuilder />
             </main>
         </div>
     );
