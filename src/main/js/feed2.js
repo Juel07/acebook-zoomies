@@ -84,16 +84,20 @@ function ResponsiveDrawer(props) {
         history.push("/signup")
     }
 
+    // console.log(props);
+    let obj = props.location.state.user_info
     const drawer = (
         <div>
             <div className={classes.toolbar} />
             <Grid className={classes.userProfile}>
-                <Avatar alt="Eddie" src="/" className={classes.large}></Avatar>
+
+                <Avatar alt={obj.name} src="/" className={classes.large}></Avatar>
                 <List>
                     <Typography variant="h6" noWrap gutterBottom>
-                        Eddie Andress
+                        {obj.name}
                     </Typography>
                 </List>
+
             </Grid>
             <Divider />
             <List>
@@ -178,7 +182,7 @@ function ResponsiveDrawer(props) {
             <main className={classes.content}>
                 <div className={classes.toolbar} />
 
-                <PostForm {...props}/> <PostsBuilder />
+                <PostForm {...props} /> <PostsBuilder />
             </main>
         </div>
     );

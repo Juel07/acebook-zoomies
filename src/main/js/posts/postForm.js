@@ -26,12 +26,12 @@ const useStyles = makeStyles((theme) => ({
 
 export default function PostForm(props) {
   const [postContent, setPostContent] = useState("");
+  // console.log(props);
 
   function submitPost() {
-    console.log(postContent);
     const newPost = {
       content: postContent,
-      user_id: 1,
+      user_id: props.location.state.user_id,
       likes: 0,
       date: new Date()
     };
@@ -52,9 +52,9 @@ export default function PostForm(props) {
 
   const classes = useStyles();
 
-  if (props.location.state) {
-    console.log(props.location.state.user_id);
-  }
+  // if (props.location.state) {
+  //   console.log(props.location.state.user_id);
+  // }
 
   return (
     <Grid xs={12} className={classes.root} spacing={2}>

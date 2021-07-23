@@ -88,7 +88,8 @@ export default function SignUp() {
     client({ method: 'POST', path: '/api/users', entity: newUser }).then(response => {
       let hrefArr = response.entity._links.self.href.split('/');
       let id = hrefArr[hrefArr.length - 1];
-      history.push('/', {user_id: id});
+      // console.log(id);
+      history.push('/', {user_id: id, user_info: newUser });
     });
   }
 

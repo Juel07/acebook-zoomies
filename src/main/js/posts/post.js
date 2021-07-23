@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import ListItem from "@material-ui/core/ListItem";
 import Avatar from "@material-ui/core/Avatar";
@@ -15,6 +15,7 @@ import ChatBubbleOutlineOutlinedIcon from "@material-ui/icons/ChatBubbleOutlineO
 import ShareIcon from "@material-ui/icons/Share";
 import DeleteButton from "./deleteButton";
 import LikeButton from "./likeButton";
+import client from "../client";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -45,10 +46,20 @@ export default function Post(props) {
   const classes = useStyles();
 
   const [expanded, setExpanded] = React.useState(false);
+  const [userName, setUserName] = React.useState("");
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+
+  useEffect(() => {
+    client({
+      method: 'GET', path: `/api/users/${props.post.user_id}`
+    }).then(response => {
+      console.log(response);
+      setUserName(response.entity.name)
+    });
+  })
 
   const formatDate = (utcDate) => {
     let dbDate = new Date(utcDate).toString();
@@ -63,14 +74,13 @@ export default function Post(props) {
       <Card className={classes.root}>
         <CardHeader
           avatar={
-            <Avatar aria-label="user name" className={classes.avatar}>
-              J
+            <Avatar alt={userName} src="/" aria-label="user name" className={classes.avatar} >
             </Avatar>
           }
           action={
             <DeleteButton postData={props.post} idPost={props.idPost} refreshPostsBuilder={props.refreshPostsBuilder} />
           }
-          title="John Doe"
+          title={userName}
           subheader={formatDate(props.post.date)}
         />
         <CardContent>
