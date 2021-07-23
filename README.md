@@ -11,9 +11,9 @@ It uses:
 
 ### Screenshots
 
-<img src="/images/feed.png" width="65%">
+<img src="/images/feed.png" width="80%">
 
-<img src="/images/signup.png" width="65%">
+<img src="/images/signup.png" width="80%">
 
 ### Project Board
 
@@ -123,11 +123,11 @@ I want to see other people’s profile pages
 
 ### Domain Model
 
-<img src="/images/domain-model.png" width="65%">
+<img src="/images/domain-model.png" width="80%">
 
 ### Wireframe
 
-<img src="/images/wireframe.png" width="65%">
+<img src="/images/wireframe.png" width="80%">
 
 ### Team ✨
 
